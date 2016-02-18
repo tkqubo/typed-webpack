@@ -1,0 +1,29 @@
+{
+  "name": "typed-webpack",
+  "version": "1.12.9",
+  "description": "Type definition files for [Webpack](https://github.com/webpack/webpack)",
+  "main": "webpack-tests.js",
+  "scripts": {
+    "clean": "rm -vf webpack-tests.js",
+    "build": "npm run clean && tsc",
+    "test": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tkqubo/typed-webpack.git"
+  },
+  "keywords": [
+    "TypeScript",
+    "typings",
+    "Webpack"
+  ],
+  "author": "tkqubo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tkqubo/typed-webpack/issues"
+  },
+  "homepage": "https://github.com/tkqubo/typed-webpack#readme",
+  "dependencies": {
+    "webpack": "^1.12.13"
+  }
+}

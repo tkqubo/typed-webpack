@@ -1,6 +1,6 @@
 # Typed Webpack
 
-Type definition files for [Webpack](https://github.com/webpack/webpack)
+Type definition file for [Webpack](https://github.com/webpack/webpack)
 
 # License 
 
