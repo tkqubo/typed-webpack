@@ -31,6 +31,6 @@ node_modules
 # Created by .ignore support plugin (hsz.mobi)
 
 # TypeScript
-*.js
+test/*.js
 typings
 

@@ -2,12 +2,12 @@
   "name": "typed-webpack",
   "version": "1.12.9",
   "description": "Type definition files for [Webpack](https://github.com/webpack/webpack)",
-  "main": "webpack-tests.js",
+  "main": "test/test.js",
   "scripts": {
-    "clean": "rm -rfv typings && rm -vf webpack-tests.js",
+    "clean": "rm -rfv typings && rm -rfv test/*.js",
     "build": "npm run clean && typings install && tsc",
     "start": "npm run build",
-    "test": "npm run start"
+    "test": "npm run start && cd test && tsc"
   },
   "repository": {
     "type": "git",

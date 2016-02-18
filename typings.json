@@ -1,10 +1,12 @@
 {
   "name": "webpack",
   "author": "tkqubo",
-  "main": "webpack.d.ts",
-  "browser": "webpack.d.ts",
+  "main": "index.d.ts",
+  "browser": "index.d.ts",
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "webpack": "file:index.d.ts"
+  },
   "ambientDependencies": {
     "node": "github:DefinitelyTyped/DefinitelyTyped/node/node.d.ts#366b936e62a6244a15f011e0ee0559b903d1dd65",
     "source-map": "github:DefinitelyTyped/DefinitelyTyped/source-map/source-map.d.ts#1c572762b93d4b059d89339867edf54946176361",
