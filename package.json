@@ -4,9 +4,10 @@
   "description": "Type definition files for [Webpack](https://github.com/webpack/webpack)",
   "main": "webpack-tests.js",
   "scripts": {
-    "clean": "rm -vf webpack-tests.js",
-    "build": "npm run clean && tsc",
-    "test": "tsc"
+    "clean": "rm -rfv typings && rm -vf webpack-tests.js",
+    "build": "npm run clean && typings install && tsc",
+    "start": "npm run build",
+    "test": "npm run start"
   },
   "repository": {
     "type": "git",
