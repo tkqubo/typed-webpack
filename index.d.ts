@@ -3,9 +3,6 @@
 // Definitions by: Qubo <https://github.com/tkqubo>
 // Original Definitions: https://github.com/borisyankov/DefinitelyTyped
 
-import * as UglifyJS from 'uglify-js';
-
-
 declare function webpack(config: webpack.Configuration, callback?: webpack.compiler.CompilerCallback): webpack.compiler.Compiler;
 declare namespace webpack {
   interface Configuration {
@@ -381,7 +378,27 @@ declare namespace webpack {
      * You can pass an object containing UglifyJs options.
      */
     export class UglifyJsPlugin extends Plugin {
-      constructor(options?: UglifyJS.MinifyOptions);
+      constructor(options?: MinifyOptions);
+    }
+
+    /**
+     * Minification options from uglify-js
+     */
+    export interface MinifyOptions {
+      spidermonkey?: boolean;
+      outSourceMap?: string;
+      sourceRoot?: string;
+      inSourceMap?: string;
+      fromString?: boolean;
+      warnings?: boolean;
+      mangle?: Object;
+      output?: MinifyOutput,
+      compress?: Object;
+    }
+
+    export interface MinifyOutput {
+      code: string;
+      map: string;
     }
 
     export class CommonsChunkPlugin extends Plugin {
