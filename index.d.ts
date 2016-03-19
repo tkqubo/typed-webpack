@@ -13,7 +13,7 @@ declare namespace webpack {
     /** Options affecting the output. */
     output?: Output;
     /** Options affecting the normal modules (NormalModuleFactory) */
-      module?: Module;
+    module?: Module;
     /** Options affecting the resolving of modules. */
     resolve?: Resolve;
     /** Like resolve but for loaders. */
@@ -143,7 +143,7 @@ declare namespace webpack {
 
   interface Resolve {
     /** Replace modules by other modules or paths. */
-    alias: { [key: string]: string; };
+    alias?: { [key: string]: string; };
     /**
      * The directory (absolute path) that contains your modules.
      * May also be an array of directories.

@@ -466,3 +466,8 @@ compiler.run(function(err, stats) {
   // ...
   var fileContent = fs.readFileSync("...");
 });
+
+// config with an empty resolve object
+configuration = {
+  resolve: { }
+};
