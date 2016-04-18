@@ -1,6 +1,6 @@
 {
   "name": "typed-webpack",
-  "version": "1.12.9",
+  "version": "1.13.0",
   "description": "Type definition files for [Webpack](https://github.com/webpack/webpack)",
   "main": "test/test.js",
   "scripts": {
@@ -26,12 +26,12 @@
   },
   "homepage": "https://github.com/tkqubo/typed-webpack#readme",
   "dependencies": {
-    "webpack": "^1.12.13"
+    "webpack": "^1.13.0"
   },
   "devDependencies": {
-    "tslint": "^3.7.0-dev.5",
-    "typings": "^0.7.11",
-    "tslint-config-typings": "^0.2.0",
-    "typescript": "^1.9.0-dev.20160418"
+    "tslint": "^3.7.4",
+    "typings": "^0.7.12",
+    "tslint-config-typings": "^0.2.3",
+    "typescript": "1.8.10"
   }
 }
