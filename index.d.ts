@@ -7,7 +7,7 @@ declare function webpack(config: webpack.Configuration, callback?: webpack.compi
 declare namespace webpack {
   interface Configuration {
     context?: string;
-    entry?: string|string[]|Entry;
+    entry?: string | string[] | Entry;
     /** Choose a developer tool to enhance debugging. */
     devtool?: string;
     /** Options affecting the output. */
@@ -22,7 +22,7 @@ declare namespace webpack {
      *  Specify dependencies that shouldn’t be resolved by webpack, but should become dependencies of the resulting bundle.
      *  The kind of the dependency depends on output.libraryTarget.
      */
-    externals?: ExternalsElement|ExternalsElement[];
+    externals?: ExternalsElement | ExternalsElement[];
     /**
      * <ul>
      *   <li>"web" Compile for usage in a browser-like environment (default)</li>
@@ -39,7 +39,7 @@ declare namespace webpack {
     /** Capture timing information for each module. */
     profile?: boolean;
     /** Cache generated modules and chunks to improve performance for multiple incremental builds. */
-    cache?: boolean|any;
+    cache?: boolean | any;
     /** Enter watch mode, which rebuilds on file change. */
     watch?: boolean;
     watchOptions?: WatchOptions;
@@ -58,11 +58,11 @@ declare namespace webpack {
     /** Store compiler state to a json file. */
     recordsOutputPath?: string;
     /** Add additional plugins to the compiler. */
-    plugins?: (Plugin|Function)[];
+    plugins?: (Plugin | Function)[];
   }
 
   interface Entry {
-    [name: string]: string|string[];
+    [name: string]: string | string[];
   }
 
   interface Output {
@@ -116,7 +116,7 @@ declare namespace webpack {
     /** Prefixes every line of the source in the bundle with this string. */
     sourcePrefix?: string;
     /** This option enables cross-origin loading of chunks. */
-    crossOriginLoading?: string|boolean;
+    crossOriginLoading?: string | boolean;
   }
 
   interface Module {
@@ -127,7 +127,7 @@ declare namespace webpack {
     /** A array of applied post loaders. */
     postLoaders?: Loader[];
     /** A RegExp or an array of RegExps. Don’t parse files matching. */
-    noParse?: RegExp|RegExp[];
+    noParse?: RegExp | RegExp[];
     unknownContextRequest?: string;
     unknownContextRecursive?: boolean;
     unknownContextRegExp?: RegExp;
@@ -147,8 +147,9 @@ declare namespace webpack {
     /**
      * The directory (absolute path) that contains your modules.
      * May also be an array of directories.
-     * This setting should be used to add individual directories to the search path. */
-    root?: string|string[];
+     * This setting should be used to add individual directories to the search path.
+     */
+    root?: string | string[];
     /**
      * An array of directory names to be resolved to the current directory as well as its ancestors, and searched for modules.
      * This functions similarly to how node finds “node_modules” directories.
@@ -159,22 +160,22 @@ declare namespace webpack {
      * A directory (or array of directories absolute paths),
      * in which webpack should look for modules that weren’t found in resolve.root or resolve.modulesDirectories.
      */
-    fallback?: string|string[];
+    fallback?: string | string[];
     /**
      * An array of extensions that should be used to resolve modules.
      * For example, in order to discover CoffeeScript files, your array should contain the string ".coffee".
      */
     extensions?: string[];
     /** Check these fields in the package.json for suitable files. */
-    packageMains?: (string|string[])[];
+    packageMains?: (string | string[])[];
     /** Check this field in the package.json for an object. Key-value-pairs are threaded as aliasing according to this spec */
-    packageAlias?: (string|string[])[];
+    packageAlias?: (string | string[])[];
     /**
      * Enable aggressive but unsafe caching for the resolving of a part of your files.
      * Changes to cached paths may cause failure (in rare cases). An array of RegExps, only a RegExp or true (all files) is expected.
      * If the resolved path matches, it’ll be cached.
      */
-    unsafeCache?: RegExp|RegExp[]|boolean;
+    unsafeCache?: RegExp | RegExp[] | boolean;
   }
 
   interface ResolveLoader extends Resolve {
@@ -182,10 +183,10 @@ declare namespace webpack {
     moduleTemplates?: string[];
   }
 
-  type ExternalsElement = string|RegExp|ExternalsObjectElement|ExternalsFunctionElement;
+  type ExternalsElement = string | RegExp | ExternalsObjectElement | ExternalsFunctionElement;
 
   interface ExternalsObjectElement {
-    [key: string]: boolean|string;
+    [key: string]: boolean | string;
   }
 
   interface ExternalsFunctionElement {
@@ -196,7 +197,7 @@ declare namespace webpack {
     /** Delay the rebuilt after the first change. Value is a time in ms. */
     aggregateTimeout?: number;
     /** true: use polling, number: use polling with specified interval */
-    poll?: boolean|number;
+    poll?: boolean | number;
   }
 
   interface Node {
@@ -204,27 +205,25 @@ declare namespace webpack {
     global?: boolean;
     process?: boolean;
     Buffer?: boolean;
-    __filename?: boolean|string;
-    __dirname?: boolean|string;
-    [nodeBuiltin: string]: boolean|string;
+    __filename?: boolean | string;
+    __dirname?: boolean | string;
+    [nodeBuiltin: string]: boolean | string;
   }
 
-  type LoaderCondition = string|RegExp|((absPath: string) => boolean);
+  type LoaderCondition = string | RegExp | ((absPath: string) => boolean);
 
   interface Loader {
     /** A condition that must not be met */
-    exclude?: LoaderCondition|LoaderCondition[];
+    exclude?: LoaderCondition | LoaderCondition[];
     /** A condition that must be met */
-    include?: LoaderCondition|LoaderCondition[];
+    include?: LoaderCondition | LoaderCondition[];
     /** A condition that must be met */
-    test: LoaderCondition|LoaderCondition[];
+    test: LoaderCondition | LoaderCondition[];
     /** A string of “!” separated loaders */
     loader?: string;
     /** A array of loaders as string */
     loaders?: string[];
-    query?: {
-      [name: string]: any;
-    }
+    query?: { [name: string]: any; };
   }
 
   interface Plugin { }
@@ -341,6 +340,33 @@ declare namespace webpack {
   }
 
   /**
+   * LibraryManifestPlugin
+   */
+
+  export interface LibraryOption {
+    path?: string;
+    name?: string;
+    type?: string;
+  }
+
+  export interface LibraryManifest {
+    name: string;
+    type?: string;
+    content: { [request: string]: number; };
+  }
+
+  /**
+   * DllPlugin
+   */
+
+  export interface DllOption extends LibraryOption { }
+
+  export class DllPlugin extends Plugin {
+    constructor(options: DllOption);
+  }
+
+
+  /**
    * optimize namespace
    */
   namespace optimize {
@@ -392,7 +418,7 @@ declare namespace webpack {
       fromString?: boolean;
       warnings?: boolean;
       mangle?: Object;
-      output?: MinifyOutput,
+      output?: MinifyOutput;
       compress?: Object;
     }
 
@@ -402,7 +428,7 @@ declare namespace webpack {
     }
 
     export class CommonsChunkPlugin extends Plugin {
-      constructor(chunkName: string, filenames?: string|string[]);
+      constructor(chunkName: string, filenames?: string | string[]);
       constructor(options?: any);
     }
 
@@ -435,7 +461,7 @@ declare namespace webpack {
        * Returns a Watching instance. Note: since this will automatically run an initial build, so you only need to run watch (and not run).
        */
       watch(watchOptions: WatchOptions, handler: CompilerCallback): Watching;
-      //TODO: below are some of the undocumented properties. needs typings
+      // TODO: below are some of the undocumented properties. needs typings
       outputFileSystem: any;
       name: string;
       options: Configuration;
@@ -449,7 +475,7 @@ declare namespace webpack {
       /** After a change the watcher waits that time (in milliseconds) for more changes. Default: 300. */
       aggregateTimeout?: number;
       /** The watcher uses polling instead of native watchers. true uses the default interval, a number specifies a interval in milliseconds. Default: undefined (automatic). */
-      poll?: number|boolean;
+      poll?: number | boolean;
     }
 
     interface Stats {
@@ -458,7 +484,7 @@ declare namespace webpack {
       /** Returns true if there were warnings while compiling. */
       hasWarnings(): boolean;
       /** Return information as json object */
-      toJson(options?: StatsToJsonOptions): any; //TODO: type this
+      toJson(options?: StatsToJsonOptions): any; // TODO: type this
       /** Returns a formatted string of the result. */
       toString(options?: StatsToStringOptions): string;
     }
