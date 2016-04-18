@@ -1,0 +1,10 @@
+{
+  "extends": "tslint-config-typings",
+  "rules": {
+    "quotemark": [
+      true,
+      "double",
+      "avoid-escape"
+    ]
+  }
+}

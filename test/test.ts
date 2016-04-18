@@ -1,10 +1,10 @@
 
-import * as webpack from 'webpack';
-import * as path from 'path';
+import * as webpack from "webpack";
+import * as path from "path";
 
-var configuration: webpack.Configuration;
-var loader: webpack.Loader;
-var plugin: webpack.Plugin;
+let configuration: webpack.Configuration;
+let loader: webpack.Loader;
+let plugin: webpack.Plugin;
 declare var __dirname: string;
 
 //
@@ -79,10 +79,10 @@ configuration = {
   ]
 };
 
-configuration =  {
+configuration = {
   entry: { a: "./a", b: "./b" },
   output: { filename: "[name].js" },
-  plugins: [ new webpack.optimize.CommonsChunkPlugin("init.js") ]
+  plugins: [new webpack.optimize.CommonsChunkPlugin("init.js")]
 };
 
 //
@@ -100,7 +100,7 @@ configuration = {
 
 class ExtractTextPlugin implements webpack.Plugin {
   static extract(...loaders: string[]): string { return null; }
-  constructor(...args: any[]) {}
+  constructor(...args: any[]) { }
 }
 
 configuration = {
@@ -276,23 +276,23 @@ configuration = {
 // https://webpack.github.io/docs/list-of-plugins.html
 //
 
-var plugin: webpack.Plugin;
-var resourceRegExp: any;
-var newResource: any;
-var contextRegExp: any;
-var newContentResource: any;
-var newContentRecursive: any;
-var newContentRegExp: any;
-var requestRegExp: any;
-var options: any;
-var definitions: any;
-var paths: any;
-var preferEntry = true;
-var context: any;
-var request: any;
-var types: any;
-var banner: any;
-var plugins: webpack.Plugin[];
+// let plugin: webpack.Plugin;
+let resourceRegExp: any;
+let newResource: any;
+let contextRegExp: any;
+let newContentResource: any;
+let newContentRecursive: any;
+let newContentRegExp: any;
+let requestRegExp: any;
+let options: any;
+let definitions: any;
+let paths: any;
+let preferEntry = true;
+let context: any;
+let request: any;
+let types: any;
+let banner: any;
+let plugins: webpack.Plugin[];
 
 plugin = new webpack.NormalModuleReplacementPlugin(resourceRegExp, newResource);
 plugin = new webpack.ContextReplacementPlugin(
@@ -319,7 +319,7 @@ plugin = new webpack.ResolverPlugin([
   new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin("bower.json", ["main"])
 ], ["normal", "loader"]);
 plugin = new webpack.ResolverPlugin([
-  new webpack.ResolverPlugin.FileAppendPlugin(['/dist/compiled-moduled.js'])
+  new webpack.ResolverPlugin.FileAppendPlugin(["/dist/compiled-moduled.js"])
 ]);
 plugin = new webpack.BannerPlugin(banner, options);
 plugin = new webpack.optimize.DedupePlugin();
@@ -335,7 +335,7 @@ plugin = new webpack.optimize.UglifyJsPlugin({
 });
 plugin = new webpack.optimize.UglifyJsPlugin({
   mangle: {
-    except: ['$super', '$', 'exports', 'require']
+    except: ["$super", "$", "exports", "require"]
   }
 });
 plugin = new webpack.optimize.CommonsChunkPlugin(options);
@@ -390,22 +390,22 @@ plugin = new webpack.ProvidePlugin({
 });
 plugin = new webpack.SourceMapDevToolPlugin({
   //// asset matching
-  //test: string | RegExp | Array,
-  //include: string | RegExp | Array,
-  //exclude: string | RegExp | Array,
-  //
-  //// file and reference
-  //filename: string,
-  //append: bool | string,
-  //
-  //// sources naming
-  //moduleFilenameTemplate: string,
-  //fallbackModuleFilenameTemplate: string,
-  //
-  //// quality/performance
-  //module: bool,
-  //columns: bool,
-  //lineToLine: bool | object
+  // test: string | RegExp | Array,
+  // include: string | RegExp | Array,
+  // exclude: string | RegExp | Array,
+
+  // // file and reference
+  // filename: string,
+  // append: bool | string,
+
+  // // sources naming
+  // moduleFilenameTemplate: string,
+  // fallbackModuleFilenameTemplate: string,
+
+  // // quality/performance
+  // module: bool,
+  // columns: bool,
+  // lineToLine: bool | object
 });
 plugin = new webpack.HotModuleReplacementPlugin();
 plugin = new webpack.ExtendedAPIPlugin();
@@ -424,7 +424,7 @@ webpack({
 });
 
 // returns a Compiler instance
-var compiler = webpack({
+let compiler = webpack({
   // configuration
 });
 
@@ -448,26 +448,30 @@ declare function successfullyCompiled(): void;
 webpack({
   // configuration
 }, function(err, stats) {
-  if(err)
+  if (err) {
     return handleFatalError(err);
-  var jsonStats = stats.toJson();
-  if(jsonStats.errors.length > 0)
+  }
+  let jsonStats = stats.toJson();
+  if (jsonStats.errors.length > 0) {
     return handleSoftErrors(jsonStats.errors);
-  if(jsonStats.warnings.length > 0)
+  }
+  if (jsonStats.warnings.length > 0) {
     handleWarnings(jsonStats.warnings);
+  }
   successfullyCompiled();
 });
 
 declare var fs: any;
 
-compiler = webpack({ });
+compiler = webpack({}); r
 compiler.outputFileSystem = fs;
 compiler.run(function(err, stats) {
   // ...
-  var fileContent = fs.readFileSync("...");
+  fs.readFileSync("...");
+  // let fileContent = fs.readFileSync("...");
 });
 
 // config with an empty resolve object
 configuration = {
-  resolve: { }
+  resolve: {}
 };

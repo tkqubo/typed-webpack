@@ -7,6 +7,7 @@
     "clean": "rm -rfv typings && rm -rfv test/*.js",
     "build": "npm run clean && typings install && tsc",
     "start": "npm run build",
+    "lint": "echo linting... && tslint \"**/*.ts\" -e \"source/**\" -e \"source-test/**\" -e \"out/**\" -e \"node_modules/**\" -e \"typings/**\"",
     "test": "npm run start && cd test && tsc"
   },
   "repository": {
@@ -26,5 +27,11 @@
   "homepage": "https://github.com/tkqubo/typed-webpack#readme",
   "dependencies": {
     "webpack": "^1.12.13"
+  },
+  "devDependencies": {
+    "tslint": "^3.7.0-dev.5",
+    "typings": "^0.7.11",
+    "tslint-config-typings": "^0.2.0",
+    "typescript": "^1.9.0-dev.20160418"
   }
 }
