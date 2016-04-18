@@ -463,7 +463,7 @@ webpack({
 
 declare var fs: any;
 
-compiler = webpack({}); r
+compiler = webpack({});
 compiler.outputFileSystem = fs;
 compiler.run(function(err, stats) {
   // ...
