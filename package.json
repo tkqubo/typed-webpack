@@ -29,8 +29,8 @@
     "webpack": "^1.13.0"
   },
   "devDependencies": {
-    "tslint": "^3.7.4",
-    "typings": "^0.7.12",
+    "tslint": "^3.8.1",
+    "typings": "^0.8.1",
     "tslint-config-typings": "^0.2.3",
     "typescript": "1.8.10"
   }
